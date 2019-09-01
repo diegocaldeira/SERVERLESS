@@ -45,6 +45,16 @@
     ],
     "currentFileId": "b0fc2eb5-fa23-424b-a777-383fd78a5972",
     "resources": {
+      "snsDirectSMSResource": {
+        "name": "snsDirectSMSResource",
+        "type": "SNS",
+        "config": {
+          "snsType": 1,
+          "numbers": [
+            "@{receiver}"
+          ]
+        }
+      },
       "apigusEast1SMSGatewaysendSmspost": {
         "name": "apigusEast1SMSGatewaysendSmspost",
         "type": "API_GATEWAY",
@@ -58,20 +68,10 @@
           "resourcePath": "/send-sms",
           "restMethod": "POST",
           "proxyIntegration": false,
-          "enableCORS": false,
+          "enableCORS": true,
           "stageMode": 0,
           "stageName": "Prod",
           "mode": 0
-        }
-      },
-      "snsDirectSMSResource": {
-        "name": "snsDirectSMSResource",
-        "type": "SNS",
-        "config": {
-          "snsType": 1,
-          "numbers": [
-            "@{receiver}"
-          ]
         }
       }
     },
@@ -87,16 +87,38 @@
         "shouldPersist": false,
         "displayOnly": false,
         "editable": false
+      },
+      {
+        "lambdaId": "b0fc2eb5-fa23-424b-a777-383fd78a5972",
+        "varKey": "sender",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": true
+      },
+      {
+        "lambdaId": "b0fc2eb5-fa23-424b-a777-383fd78a5972",
+        "varKey": "message",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": true
+      },
+      {
+        "lambdaId": "b0fc2eb5-fa23-424b-a777-383fd78a5972",
+        "varKey": "receiver",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": true
       }
     ],
     "packageJSON": {
       "dependencies": {
         "aws-sdk": {
           "name": "aws-sdk",
-          "language": "javascript",
-          "version": "2.176.0",
-          "dev": true,
-          "notRemovable": false
+          "version": "2.521.0",
+          "language": "javascript"
         }
       }
     }
@@ -108,7 +130,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1567348005244
+    "lastSave": 1567348476579
   },
   "VCS_STATE": {
     "provider": "GitHub",
